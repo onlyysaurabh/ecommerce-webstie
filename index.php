@@ -12,7 +12,7 @@
     <div class="container-fluid">
       <h5>NEW ARRIVALS</h5>
       <h1>Best prices this season</h1>
-      <p>RGITSHOP offers the best products for the most affordable prices</p>
+      <p>INSTASHOP offers the best products for the most affordable prices</p>
       <a href="shop.php"><button>Shop Now!!!</button></a>
     </div>
   </section>
@@ -22,27 +22,30 @@
     <div class="row p-0 m-0">
       <!--one-->
       <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
-        <img class="img-fluid" src="./assets/imgs/1.jpg" />
+      <a href="shop.php"><img class="img-fluid" src="./assets/imgs/1.jpg" />
         <div class="details">
           <h2>50% off on hoodies</h2>
-          <a href="shop.php"><button>Shop Now!!!</button></a>
+          <button>Shop Now!!!</button>
         </div>
+        </a>
       </div>
       <!--two-->
       <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
-        <img class="img-fluid" src="./assets/imgs/5.jpg" />
+      <a href="shop.php"><img class="img-fluid" src="./assets/imgs/5.jpg" />
         <div class="details">
           <h2>Brand new backpacks</h2>
-          <a href="shop.php"><button>Shop Now!!!</button></a>
+          <button>Shop Now!!!</button>
         </div>
+        </a>
       </div>
       <!--three-->
       <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
-        <img class="img-fluid" src="./assets/imgs/4.jpg" />
+      <a href="shop.php"><img class="img-fluid" src="./assets/imgs/4.jpg" />
         <div class="details">
           <h2>Awesome Watches!!!!</h2>
-          <a href="shop.php"><button>Shop Now!!!</button></a>
+          <button>Shop Now!!!</button>
         </div>
+        </a>
       </div>
     </div>
   </section>
@@ -58,7 +61,7 @@
       <?php include('server/get_featured_products.php'); ?>
       <?php while ($row = $featured_products->fetch_assoc()){?>
       <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-      <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><img class="img-fluid mb-3" src="./assets/imgs/<?php echo $row['product_image']; ?>" /></a>
+      <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><img class="img-fluid mb-3" src="./assets/imgs/<?php echo $row['product_image']; ?>" />
         <div class="stars">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -69,6 +72,7 @@
         <h3 class="p-name"><?php echo $row['product_name']; ?></h3>
         <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
         <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><button class="buy-btn">Buy Now</button></a>
+      </a>
       </div>
       <?php } ?>
     </div>
@@ -79,7 +83,7 @@
     <div class="container-fluid">
       <h5>NEW ARRIVALS</h5>
       <h1>Best prices this season</h1>
-      <p>RGITSHOP offers the best products for the most affordable prices</p>
+      <p>INSTASHOP offers the best products for the most affordable prices</p>
       <a href="shop.php"><button>Shop Now!!!</button></a>
     </div>
   </section>

@@ -10,6 +10,13 @@
 .nav-buttons{
     margin-left: 60%;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: coral;
+}
 
 body{
     font-family: 'Poppins', sans-serif;

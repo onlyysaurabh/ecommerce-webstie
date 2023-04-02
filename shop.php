@@ -14,11 +14,11 @@
         <h3>Our Products</hr>
 
       </div>
-      <div class="row mx-auto">
+      <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><div class="row mx-auto">
       <?php include('server/get_products.php'); ?>
       <?php while ($row = $get_products->fetch_assoc()){?>
         <div onclick="window.location.href='single_product.php'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3"  src="./assets/imgs/<?php echo $row['product_image']; ?>" />
+          <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><img class="img-fluid mb-3"  src="./assets/imgs/<?php echo $row['product_image' ]; ?>" /></a>
           <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -26,8 +26,8 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           </div>
-          <h3 class="p-name"><?php echo $row['product_name']; ?></h3>
-          <h4 class="p-price">$<?php echo $row['product_price']; ?></h4>
+          <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><h3 class="p-name"><?php echo $row['product_name']; ?></h3>
+          <h4 class="p-price">$<?php echo $row['product_price']; ?></h4></a>
           <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><button class="buy-btn">Buy Now</button></a>
         </div>
         <?php } ?>
