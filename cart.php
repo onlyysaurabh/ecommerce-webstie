@@ -125,7 +125,7 @@ calculateTotalCart();
           <td>
             <form method="POST" action="cart.php">
               <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>" />
-              <input type="number" name="product_quantity" value="<?php echo $value['product_quantity']; ?>" />
+              <input type="number" name="product_quantity" min="1" value="<?php echo $value['product_quantity']; ?>" />
               <input type="submit" class="edit-btn" value="edit" name="edit_quantity" />
             </form>
 
