@@ -22,21 +22,20 @@
 
       </tr>
 
-      <?php while($row = $orders->fetch_assoc()){?>
         <tr>      
             <td>
                 <div class="product-info">
-                    
+                  <img src="assets/images/1.jpg" alt="product image">
+                  <div>
+                    <p class="mt-3"><?php echo $row['product_name']; ?></p>
+                  </div>                    
                 </div>
             </td>
             <td>
-                <span><?php echo $row['order_cost']; ?></span>
+                <span></span>
             </td> 
             <td>
-                <span><?php echo $row['order_status']; ?></span>
-            </td>
-            <td>
-                <span><?php echo $row['order_date']; ?></span>
+                <span></span>
             </td>
             <td>
                 <form action="">
@@ -44,7 +43,6 @@
                 </form>
             </td>  
       </tr>
-      <?php } ?>
 
     </table>
 
