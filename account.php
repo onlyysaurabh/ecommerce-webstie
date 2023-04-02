@@ -112,30 +112,31 @@ if(isset($_SESSION['logged_in'])){
       </tr>
 
       <?php while($row = $orders->fetch_assoc()){?>
-      <td>
-        <span><?php echo $row['order_id']; ?></span>
-      </td>
-      <td>
-        <span><?php echo $row['order_cost']; ?></span>
-      </td> 
-      <td>
-        <span><?php echo $row['order_status']; ?></span>
-      </td>
-      <td>
-        <span><?php echo $row['order_date']; ?></span>
-      </td>
-      <td>
-        <form action="">
-          <input class="btn order-details-button" type="submit" value="details">
-        </form>
-      </td>    
-
+      <tr>
+          <td>
+            <span><?php echo $row['order_id']; ?></span>
+          </td>
+          <td>
+            <span><?php echo $row['order_cost']; ?></span>
+          </td> 
+          <td>
+            <span><?php echo $row['order_status']; ?></span>
+          </td>
+          <td>
+            <span><?php echo $row['order_date']; ?></span>
+          </td>
+          <td>
+            <form action="">
+              <input class="btn order-details-button" type="submit" value="details">
+            </form>
+          </td>    
       </tr>
       <?php } ?>
 
     </table>
 
   </section>
+
   <!--footer-->
   <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/assets/"; include($IPATH."footer.html"); ?>
 
