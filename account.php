@@ -14,6 +14,31 @@ if(isset($_GET['logout'])){
     exit();
 }
 
+if(isset($_POST['change_password'])){
+    $password = $_POST['Password'];
+    $confirm_password = $_POST['Confirm Password'];
+    $user_email = $_SESSION['user_email'];
+
+    if($password != $confirm_password){
+        header("Location: account.php?error=Password does not match");
+    }
+    elseif(strlen($password)<6){
+      header("Location: account.php?error=Password must be at least 6 characters");
+    }
+    else
+    {
+      $stmt = $conn->prepare("UPDATE users SET user_password = ? WHERE user_email = ?");
+      $stmt->bind_param('ss',$password,$user_email);
+
+      if($stmt->execute()){
+        header("Location: account.php?message=Password changed successfully");
+      }
+      else{
+        header("Location: account.php?error=Something went wrong");
+      }
+    }
+}
+
 
 ?>
 
@@ -40,7 +65,9 @@ if(isset($_GET['logout'])){
         </div>
       </div>
       <div class="col-lg-6 col-12">
-        <form id="account-form" action="">
+        <form id="account-form" method="POST" action="account.php">
+          <p class="text-center" style="color:red""><?php if(isset($_GET['error'])){ echo $_GET['error']; } ?></p>
+          <p class="text-center" style="color:red""><?php if(isset($_GET['message'])){ echo $_GET['message']; } ?></p>
           <h3>Change Password</h3>
           <hr class="mx-auto" />
           <div class="form-group">
@@ -52,7 +79,7 @@ if(isset($_GET['logout'])){
             <input type="password" class="form-control" name="Confirm Password" id="account-password-confirm" placeholder="Password" required />
           </div>
           <div class="form-group">
-            <input type="submit" value="Change Password" class="btn" id="change-pass-btn" />
+            <input type="submit" value="Change Password" name="change_password" class="btn" id="change-pass-btn" />
           </div>
         </form>
       </div>

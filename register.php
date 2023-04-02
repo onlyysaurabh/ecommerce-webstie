@@ -32,7 +32,12 @@ if(isset($_POST['register'])){
             $stmt = $conn->prepare("INSERT INTO users (user_name, user_email, user_password) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $name, $email, md5($password));
             if($stmt->execute()){
-                header('Location: login.php?success=Account created successfully');
+              $user_id = $stmt->insert_id;
+              $_SESSION['user_id'] = $user_id;
+              $_SESSION['user_name'] = $name;
+              $_SESSION['user_email'] = $email;
+              $_SESSION['logged_in'] = true;
+              header('Location: login.php?success=Account created successfully');
             }
             else{
                 header('Location: register.php?error=Something went wrong');
