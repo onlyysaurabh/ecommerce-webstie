@@ -70,7 +70,6 @@ if(isset($_SESSION['logged_in'])){
         <div class="account-info">
           <p>Name : <span><?php echo $_SESSION['user_name']; ?></span></p>
           <p>Email : <span><?php echo $_SESSION['user_email']; ?></span></p>
-          <p><a href="" id="orders-btn">Your Orders</a></p>
           <p><a href="account.php?logout=1" id="logout-btn">Logout</a></p>
         </div>
       </div>
@@ -111,26 +110,27 @@ if(isset($_SESSION['logged_in'])){
         <th>Order Info</th>
       </tr>
 
-      <?php while($row = $orders->fetch_assoc()){?>
-      <tr>
-          <td>
-            <span><?php echo $row['order_id']; ?></span>
-          </td>
-          <td>
-            <span><?php echo $row['order_cost']; ?></span>
-          </td> 
-          <td>
-            <span><?php echo $row['order_status']; ?></span>
-          </td>
-          <td>
-            <span><?php echo $row['order_date']; ?></span>
-          </td>
-          <td>
-            <form action="">
-              <input class="btn order-details-button" type="submit" value="details">
-            </form>
-          </td>    
-      </tr>
+      <?php foreach($orders as $row){ ?>
+        <tr>
+            <td>
+              <span><?php echo $row['order_id']; ?></span>
+            </td>
+            <td>
+              <span><?php echo $row['order_cost']; ?></span>
+            </td> 
+            <td>
+              <span><?php echo $row['order_status']; ?></span>
+            </td>
+            <td>
+              <span><?php echo $row['order_date']; ?></span>
+            </td>
+            <td>
+              <form method="POST" action="order_details.php">
+                <input type="hidden" name="order_id" value="<?php echo $row['order_id']; ?>" name="order_id"/>
+                <input class="btn order-details-button" name="order_details_btn" type="submit" value="details">
+              </form>
+            </td>    
+        </tr>
       <?php } ?>
 
     </table>
