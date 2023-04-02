@@ -533,13 +533,13 @@ th:last-child{
 }
 
 .orders th{
-    text-align: left;
+    /*text-align: left;*/
     padding: 5px 10px;
     color: #ffff;
     background-color: #fb774b;
 }
 .orders th:nth-child(2){
-    text-align: right;
+    /*text-align: right;*/
 }
 
 .orders td{
@@ -552,7 +552,11 @@ th:last-child{
     height: 80px;
     margin-right: 10px;
 }
-
+.orders .order-details-btn{
+    color: #fff;
+    background-color: #fb774b;
+    
+}
 /*Checkout*/
 #checkout-form .checkout-small-element{
     display: inline-block;
