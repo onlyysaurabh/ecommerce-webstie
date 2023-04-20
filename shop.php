@@ -30,7 +30,14 @@ if(isset($_POST['search'])){
     <!--Navbar-->
     <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/assets/"; include($IPATH."navbar.html"); ?>
 
-    <section id="search" class="col-3 my-5 py-5 ms-2">
+    <style>
+      section.left{
+        float: left;
+      }
+    </style>
+
+    <!--Search-->
+    <section id="search" class="my-5 py-5 ms-2 col-3 left ">
       <div class="container mt-5 my-5">
         <p>Filter Products</p>
         <hr>
@@ -83,7 +90,7 @@ if(isset($_POST['search'])){
           </div>
         </div>
 
-        <div>
+        <div class="form-group my-3 mx-3">
           <input type="submit" name="search" value="Search" class="btn btn-primary">
         </div>
 
@@ -91,14 +98,11 @@ if(isset($_POST['search'])){
       </form>
     </section>
 
-
-
-
     <!--Produtcts-->
-    <section id="shop" class="col-12 my-5 pb-5 ms-auto">
+    <section id="shop" class="my-5 py-5 right">
       <div class="container text-center mt-5 py-5">
         <h3>Products</hr>
-      </div>      
+      </div>   
       <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><div class="row mx-auto">
       <?php while ($row = $products->fetch_assoc()){?>
         <div onclick="window.location.href='single_product.php'" class="product text-center col-lg-3 col-md-4 col-sm-12">
