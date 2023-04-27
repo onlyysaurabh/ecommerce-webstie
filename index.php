@@ -17,6 +17,37 @@
     </div>
   </section>
 
+  <!--featured-->
+  <section id="featured" class="my-3 pb-3">
+    <div class="container-fluid text-center mt-3 py-2">
+      <h3>Popular Now</h3>
+      <hr class="mx-auto" />
+    </div>
+    <div class="row mx-auto container-fluid">
+      <?php include('server/get_popular.php'); ?>
+      <?php while ($row = $featured_products->fetch_assoc()){?>
+      <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+      <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><img class="img-fluid mb-3" src="./assets/imgs/<?php echo $row['product_image']; ?>" />
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <h3 class="p-name"><?php echo $row['product_name']; ?></h3>
+        <h4 class="p-price">$ <?php echo $row['product_price']; ?></h4>
+        <a href="<?php echo "single_product.php?product_id=".$row['product_id']?>"><button class="buy-btn">Buy Now</button></a>
+      </a>
+      </div>
+      <?php } ?>
+    </div>
+  </section>
+
+
+
+
+
   <!--Section-->
   <section id="new" class="w-100">
     <div class="row p-0 m-0">
