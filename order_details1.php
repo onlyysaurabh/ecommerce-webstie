@@ -60,7 +60,7 @@ function calculateTotalOrderPrice($order_details)
       </tr>
 
 
-      <?php foreach($order_details as $row){?>
+      <?php while($row = $order_details->fetch_assoc()){?>
       <tr>
         <td><img src="assets/imgs/<?php echo $row['product_image']; ?>" alt="product image" width="100px"></td>
         <td><?php echo $row['product_name']; ?></td>
